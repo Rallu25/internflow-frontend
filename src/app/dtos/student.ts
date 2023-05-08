@@ -1,16 +1,16 @@
 export class Student {
-    id: number;
-    first_name: string;
-    last_name: string;
+    studentId: number;
+    firstName: string;
+    lastName: string;
     email: string;
-    team: string;
+    //team: string;
 
 
     constructor(student: Student) {
-        this.id = student?.id;
-        this.first_name = student?.first_name;
-        this.last_name = student?.last_name;
+        this.studentId = student?.studentId;
+        this.firstName = student?.firstName;
+        this.lastName = student?.lastName;
         this.email = student?.email;
-        this.team = student?.team;
+        //this.team = student?.team;
     }
 }

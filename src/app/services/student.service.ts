@@ -1,11 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Student } from '../dtos/student';
+import { HttpClient } from "@angular/common/http";
+import { map, Observable } from "rxjs";
 
+export enum OrderDirection {
+  DESC = 'desc'
+}
 @Injectable({
   providedIn: 'root'
 })
+
 export class StudentService {
-  private mockStudents: Student[] = [
+  constructor(private http: HttpClient) {}
+
+  path = '/api/student';
+
+  searchStudents(): Observable<Student[]> {
+    return this.http.get(this.path)
+      .pipe(
+        map((response: unknown) => {
+          const studentList = (response as Student[]);
+          if (studentList) {
+              return studentList;
+          }
+          return [];
+        })
+      );
+  }
+
+
+
+
+
+ /* private mockStudents: Student[] = [
     {
       id: 1,
       first_name: 'Bella',
@@ -31,8 +58,8 @@ export class StudentService {
 
   getStudents(): Student[] {
     return this.mockStudents;
-  }
+  }*/
 }
 
 
-export {};
+//export {};
