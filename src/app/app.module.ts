@@ -1,6 +1,10 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +17,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { StudentListComponent } from './components/student-list/student-list.component';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { AddStudentDialogComponent } from './components/add-student-dialog/add-student-dialog.component';
 
 
 
@@ -20,7 +25,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   declarations: [
     AppComponent,
     HeaderComponent,
-    StudentListComponent
+    StudentListComponent,
+    AddStudentDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatButtonModule,
     MatTableModule,
     MatPaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule, 
+    ReactiveFormsModule,
+    MatInputModule
+
+    
+    
     
   ],
   providers: [],
