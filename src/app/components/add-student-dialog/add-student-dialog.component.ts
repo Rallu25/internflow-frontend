@@ -22,18 +22,18 @@ export class AddStudentDialogComponent {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', Validators.required],
-      
+     
       
     });
   }
 
   save() {
     const student: Student = {
-      studentId: this.form.value.firstName,
+      studentId: this.form.value.studentId,
       firstName: this.form.value.firstName,
       lastName: this.form.value.lastName,
-      email: this.form.value.email
-      
+      email: this.form.value.email,
+      team: this.form.value.team
       
     };
     this.dialogRef.close(student);

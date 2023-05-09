@@ -1,9 +1,11 @@
+import { Team } from "./team";
+
 export class Student {
     studentId: number;
     firstName: string;
     lastName: string;
     email: string;
-    //team: string;
+    team: Team;
 
 
     constructor(student: Student) {
@@ -11,6 +13,6 @@ export class Student {
         this.firstName = student?.firstName;
         this.lastName = student?.lastName;
         this.email = student?.email;
-        //this.team = student?.team;
+        this.team = student?.team;
     }
 }

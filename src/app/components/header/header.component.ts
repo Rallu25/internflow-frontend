@@ -4,6 +4,7 @@ import { StudentService } from 'src/app/services/student.service';
 import { Student } from 'src/app/dtos/student';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentDialogComponent } from '../add-student-dialog/add-student-dialog.component';
+import { Team } from 'src/app/dtos/team';
 
 @Component({
   selector: 'app-header',
@@ -26,7 +27,10 @@ export class HeaderComponent implements OnInit {
         studentId: -1,
         firstName: '',
         lastName: '',
-        email: ''
+        email: '',
+        team: new Team({
+          teamId: -1,
+        })
       })
     }
 
@@ -40,7 +44,9 @@ export class HeaderComponent implements OnInit {
       if (result) {
         this.studentService.addStudent(result).subscribe(newStudent => {
           console.log('New student added:', newStudent);
-        });
+        }, error => {
+          console.log('Error adding student:', error);
+        }); 
       }
     });
   }
