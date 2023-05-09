@@ -50,34 +50,7 @@ export class HeaderComponent implements OnInit {
       }
     });
   }
-//   dialogRef.afterClosed().subscribe((result: Student | undefined) => {
-//     if (result) {
-//       this.studentService.addStudent(result).subscribe((newStudent: Student | null) => {
-//         if (newStudent) {
-//           // do something with the new student object
-//         }
-//       });
-//     }
-//     });
 
-//      dialogRef.afterClosed().subscribe((result: Student) => {
-//       if (result) {
-//         this.studentService.addStudent(result).subscribe((addedStudent: Student) => {
-//           console.log(`Added student: ${JSON.stringify(addedStudent)}`);
-//           // You can add any additional logic here to update the UI, display a success message, etc.
-//         });
-//       }
-//     });
-//   }
-
-    // addStudent() {
-    //   const student: Student = {studentId, firstName, lastName, email };
-    //   this.studentService.addStudent(student).subscribe((newStudent: Student | null) => {
-    //     if (newStudent) {
-    //       // do something with the new student object
-    //     }
-    //   });
-    // }
     
    
 

@@ -18,6 +18,7 @@ import { StudentListComponent } from './components/student-list/student-list.com
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AddStudentDialogComponent } from './components/add-student-dialog/add-student-dialog.component';
+import { StudentService } from './services/student.service';
 
 
 
@@ -46,7 +47,7 @@ import { AddStudentDialogComponent } from './components/add-student-dialog/add-s
     
     
   ],
-  providers: [],
+  providers: [StudentService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -30,7 +30,7 @@ export class StudentService {
   }
 
   addStudent(student: Student): Observable<Student> {
-    return this.http.post(`${this.API_URL}`, student)
+    return this.http.post(this.path, student)
       .pipe(
         map((response: any) => {
           return new Student(response);
@@ -38,18 +38,7 @@ export class StudentService {
       );
   }
 
-//   addStudent(student: Student): Observable<Student | null> {
-//     return this.http.post(this.path, student)
-//       .pipe(
-//         map((response: unknown) => {
-//           const studentList = (response as Student);
-//           if (studentList) {
-//               return studentList;
-//           }
-//           return null;
-//         })
-//  );
-// }
+
 
 }
 
