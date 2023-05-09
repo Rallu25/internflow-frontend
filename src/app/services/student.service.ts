@@ -11,6 +11,7 @@ export enum OrderDirection {
 })
 
 export class StudentService {
+  private readonly API_URL =  'http://localhost:8080/api/student';
   constructor(private http: HttpClient) {}
 
   path = '/api/student';
@@ -28,38 +29,29 @@ export class StudentService {
       );
   }
 
+  addStudent(student: Student): Observable<Student> {
+    return this.http.post(`${this.API_URL}`, student)
+      .pipe(
+        map((response: any) => {
+          return new Student(response);
+        })
+      );
+  }
 
+//   addStudent(student: Student): Observable<Student | null> {
+//     return this.http.post(this.path, student)
+//       .pipe(
+//         map((response: unknown) => {
+//           const studentList = (response as Student);
+//           if (studentList) {
+//               return studentList;
+//           }
+//           return null;
+//         })
+//  );
+// }
 
-
-
- /* private mockStudents: Student[] = [
-    {
-      id: 1,
-      first_name: 'Bella',
-      last_name: 'Bajanescu',
-      email: 'georgia.bajanescu02@e-uvt.ro',
-      team: 'Internflow'
-    },
-    {
-        id: 2,
-        first_name: 'Bianca',
-        last_name: 'Barbaliu',
-        email: 'bianca.barbaliu02@e-uvt.ro',
-        team: 'Internflow'
-      },
-      {
-        id: 3,
-        first_name: 'Raluca',
-        last_name: 'Osman',
-        email: 'raluca.osman02@e-uvt.ro',
-        team: 'Internflow'
-      }
-  ];
-
-  getStudents(): Student[] {
-    return this.mockStudents;
-  }*/
 }
 
 
-//export {};
+
