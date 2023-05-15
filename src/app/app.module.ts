@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-
+import { FormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +21,7 @@ import { AddStudentDialogComponent } from './components/add-student-dialog/add-s
 import { StudentService } from './services/student.service';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AddTeamDialogComponent } from './components/add-team-dialog/add-team-dialog.component';
 
 
 
@@ -31,7 +32,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     StudentListComponent,
     AddStudentDialogComponent,
     SidebarComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddTeamDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -45,11 +47,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HttpClientModule,
     MatDialogModule, 
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule
 
-    
-    
-    
   ],
   providers: [StudentService],
   bootstrap: [AppComponent],

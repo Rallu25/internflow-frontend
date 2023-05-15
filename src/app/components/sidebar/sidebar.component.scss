@@ -1,23 +1,19 @@
 
 
-
-
 .sidebar {
     position: fixed;
-
     bottom: 0;
     left: 0;
-
     overflow-x: hidden;
     overflow-y: auto;
-
     width: 150px;
     height: 100vh;
     background-color: #FAF2FF;
     padding: 20px;
     display: flex;
     flex-direction: column;
-  
+    z-index: 50;
+
   }
   
   .logo {
@@ -27,6 +23,7 @@
   .logo img {
     width: 100%;
     max-width: 150px;
+    padding-top: 30px;
   }
   
   .navigation ul {

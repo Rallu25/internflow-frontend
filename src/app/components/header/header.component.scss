@@ -1,13 +1,19 @@
 
-
-
-
 .container {
  
     position: fixed;
     width: 100%;
+    z-index: 999;
+    top: 0;
+    padding-left: 15.5%;
   }
 
- 
+
+header{
+  z-index: 1;
+
+
+} 
+
 
 
