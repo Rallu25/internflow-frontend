@@ -20,6 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { AddStudentDialogComponent } from './components/add-student-dialog/add-student-dialog.component';
 import { StudentService } from './services/student.service';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
@@ -29,7 +30,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     HeaderComponent,
     StudentListComponent,
     AddStudentDialogComponent,
-    SidebarComponent
+    SidebarComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
