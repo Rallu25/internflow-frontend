@@ -5,6 +5,7 @@ import { Student } from 'src/app/dtos/student';
 import { MatDialog } from '@angular/material/dialog';
 import { AddStudentDialogComponent } from '../add-student-dialog/add-student-dialog.component';
 import { Team } from 'src/app/dtos/team';
+import { AddTeamDialogComponent } from '../add-team-dialog/add-team-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,28 +18,27 @@ export class DashboardComponent implements OnInit {
     private router: Router,
     private studentService: StudentService,
     private dialog: MatDialog
-    ) { }
+  ) { }
 
-    ngOnInit(): void {
-    }
+  ngOnInit(): void {
+  }
 
-    addStudent() {
-      this.studentSelected = new Student({
-        studentId: -1,
-        firstName: '',
-        lastName: '',
-        email: '',
-        team: new Team({
-          teamId: -1,
-        })
+  addStudent() {
+    this.studentSelected = new Student({
+      studentId: -1,
+      firstName: '',
+      lastName: '',
+      email: '',
+      team: new Team({
+        teamId: -1,
       })
-    }
-
-    openAddStudentDialog() {
-      const dialogRef = this.dialog.open(AddStudentDialogComponent, {
-        width: '600px',
-        data: {}
-      });
+    })
+  }
+  openAddStudentDialog() {
+    const dialogRef = this.dialog.open(AddStudentDialogComponent, {
+      width: '600px',
+      data: {}
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -46,13 +46,26 @@ export class DashboardComponent implements OnInit {
           console.log('New student added:', newStudent);
         }, error => {
           console.log('Error adding student:', error);
-        }); 
+        });
       }
     });
   }
 
-    
-   
+  openAddTeamDialog(): void {
+    const dialogRef = this.dialog.open(AddTeamDialogComponent, {
+      width: '600px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      // Handle the dialog close event
+    });
+  }
+
+
+
+
+
+
 
 }
 
