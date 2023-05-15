@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    
+  }
+  
+  .button-left {
+    flex-grow: 1;
+    padding: 20px;
+    position: relative;  // Add relative positioning to the dashboard content
+    
+  
+     button {
+      position: absolute;  // Position the button within the dashboard content
+      top: 100px;  // Adjust the top position to center vertically
+      left: 300px;  // Adjust the right position as per your preference
+      transition: background-color 0.3s ease;
+      color: #9787B4;
+      background-color: #ffffff;
+      font-size: 12px;
+      border: 1px solid #aaaaaa;
+      border-radius: 16px;
+      padding: 8px 35px;
+      cursor: pointer;
+      
+  
+      &:hover {
+        color: #929292;
+        background-color: #ffffff;
+      }
+    }
+  }
+
