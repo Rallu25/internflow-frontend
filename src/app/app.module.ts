@@ -19,6 +19,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AddStudentDialogComponent } from './components/add-student-dialog/add-student-dialog.component';
 import { StudentService } from './services/student.service';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 
@@ -27,7 +28,8 @@ import { StudentService } from './services/student.service';
     AppComponent,
     HeaderComponent,
     StudentListComponent,
-    AddStudentDialogComponent
+    AddStudentDialogComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
