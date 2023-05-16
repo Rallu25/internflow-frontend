@@ -8,11 +8,14 @@
     overflow-y: auto;
     width: 150px;
     height: 100vh;
-    background-color: #FAF2FF;
+    background-color: #ffffff;
     padding: 20px;
     display: flex;
     flex-direction: column;
     z-index: 50;
+    border-radius: 24px 24px 24px 24px;
+    box-shadow: 11px 10px 24px 4px rgba(0,0,0,0.55);
+    
 
   }
   
