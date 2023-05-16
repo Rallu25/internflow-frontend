@@ -50,7 +50,7 @@ export class AddTeamDialogComponent implements OnInit {
     const member3: Student = this.form.value.member3;
     const member4: Student = this.form.value.member4;
 
-    // Perform further operations with the team data, such as sending it to the server
+
 
     this.dialogRef.close();
   }

@@ -7,13 +7,13 @@
   .button-left {
     z-index: 1;
     padding: 20px;
-    position: relative;  // Add relative positioning to the dashboard content
+    position: relative;  
     
   
      button {
-      position: fixed;  // Position the button within the dashboard content
-      top: 100px;  // Adjust the top position to center vertically
-      left: 300px;  // Adjust the right position as per your preference
+      position: fixed;  
+      top: 100px;  
+      left: 300px; 
       transition: background-color 0.3s ease;
       color: #9787B4;
       background-color: #ffffff;
@@ -37,8 +37,8 @@
      button {
       z-index: 50;
       position: fixed;
-      top: 100px;  // Adjust the top position to center vertically
-      right: 300px;  // Adjust the right position as per your preference
+      top: 100px;  
+      right: 300px;  
       transition: background-color 0.3s ease;
       color: #9787B4;
       background-color: #ffffff;
