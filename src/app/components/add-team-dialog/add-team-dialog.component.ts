@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Student } from 'src/app/dtos/student';
 import { StudentService } from 'src/app/services/student.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-team-dialog',
@@ -10,12 +11,22 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class AddTeamDialogComponent implements OnInit {
   students: Student[] | undefined;
-  selectedStudents: Student[] = [];
+  form: FormGroup;
 
   constructor(
     private dialogRef: MatDialogRef<AddTeamDialogComponent>,
-    private studentService: StudentService
-  ) { }
+    private studentService: StudentService,
+    private fb: FormBuilder
+  ) { 
+    this.form = this.fb.group({
+      teamName: ['', Validators.required],
+      teamLeader: [null, Validators.required],
+      member1: [null],
+      member2: [null],
+      member3: [null],
+      member4: [null],
+    });
+  }
 
   ngOnInit(): void {
     this.fetchStudents();
@@ -27,39 +38,26 @@ export class AddTeamDialogComponent implements OnInit {
     });
   }
 
-  onSelectStudent(student: Student): void {
-    // Check if the maximum number of students in the team has been reached
-    if (this.selectedStudents.length >= 5) {
-      // Display an error message or show a notification to the user
+  save(): void {
+    if (this.form.invalid) {
       return;
     }
 
-    // Add the selected student to the team
-    this.selectedStudents.push(student);
-  }
+    const teamName: string = this.form.value.teamName;
+    const teamLeader: Student = this.form.value.teamLeader;
+    const member1: Student = this.form.value.member1;
+    const member2: Student = this.form.value.member2;
+    const member3: Student = this.form.value.member3;
+    const member4: Student = this.form.value.member4;
 
-  onRemoveStudent(student: Student): void {
-    // Remove the selected student from the team
-    const index = this.selectedStudents.indexOf(student);
-    if (index > -1) {
-      this.selectedStudents.splice(index, 1);
-    }
-  }
-
-  onSubmit(): void {
-    // Check if the minimum required number of students in the team has been met
-    if (this.selectedStudents.length < 1) {
-      // Display an error message or show a notification to the user
-      return;
-    }
-
-    // Handle the form submission
-    // You can access the team name and selected students using the corresponding variables in your component
+    // Perform further operations with the team data, such as sending it to the server
 
     this.dialogRef.close();
   }
 
-  onClose(): void {
+  cancel(): void {
     this.dialogRef.close();
   }
 }
+  
+

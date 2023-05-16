@@ -3,17 +3,16 @@
  
     position: fixed;
     width: 100%;
-    z-index: 999;
+    z-index: 100;
     top: 0;
-    padding-left: 13%;
+    //padding-left: 13%;
+    border-radius: 24px 24px 24px 24px;
+    box-shadow: 11px 10px 24px 4px rgba(0,0,0,0.55);
     
   }
 
-
 header{
   z-index: 1;
-
-
 } 
 
 
