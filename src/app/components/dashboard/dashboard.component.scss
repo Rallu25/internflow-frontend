@@ -1,5 +1,7 @@
 .container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .button-left {
@@ -9,7 +11,7 @@
     
   
      button {
-      position: absolute;  // Position the button within the dashboard content
+      position: fixed;  // Position the button within the dashboard content
       top: 100px;  // Adjust the top position to center vertically
       left: 300px;  // Adjust the right position as per your preference
       transition: background-color 0.3s ease;
@@ -32,11 +34,12 @@
   .button-right {
     flex-grow: 1;
     padding: 20px;
-    position: relative;  // Add relative positioning to the dashboard content
+    position: fixed;  // Add relative positioning to the dashboard content
+    
     
   
      button {
-      position: absolute;  // Position the button within the dashboard content
+      position: fixed;  // Position the button within the dashboard content
       top: 100px;  // Adjust the top position to center vertically
       right: 300px;  // Adjust the right position as per your preference
       transition: background-color 0.3s ease;
@@ -53,6 +56,54 @@
         color: #929292;
         background-color: #ffffff;
       }
+    }
+  }
+  .card-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+  
+  .card {
+    width: 300px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    padding-top: 100px;
+    
+    
+
+    transition: all 0.3s ease;
+  
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+  
+    .name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  
+    .email {
+      color: #666;
+    }
+  
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+      
+  
+      button {
+        margin-left: 30px;
+      }
+      
     }
   }
 
