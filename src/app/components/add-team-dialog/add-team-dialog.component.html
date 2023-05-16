@@ -1,47 +1,6 @@
-<!--<h2 mat-dialog-title>Add Team</h2>
-<div mat-dialog-content>
-  <form [formGroup]="form">
-    <mat-form-field>
-        <input matInput formControlName="teamName" placeholder="Team Name">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Team Leader</mat-label>
-        <mat-select formControlName="teamLeader">
-            <mat-option *ngFor="let student of students" [value]="student.id">
-                {{ student.first_name }} {{ student.last_name }}
-              </mat-option>
-        </mat-select>
-    </mat-form-field>
-  </form>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="cancel()">Cancel</button>
-  <button mat-button color="primary" (click)="save()" [disabled]="form.invalid">Save</button>
-</div> -->
-
-
-
-
-<!--<h2>Add Team</h2>
-<form (ngSubmit)="onSubmit()">
-  <label for="teamName">Team Name:</label>
-  <input type="text" id="teamName" name="teamName">
-
-  <label for="teamLeader">Team Leader:</label>
-  <select id="teamLeader" name="teamLeader">
-    <option *ngFor="let student of students" [value]="student.studentId">{{ student.firstName }}</option>
-  </select>
-
-  <h3>Selected Students:</h3>
-  <ul>
-    <li *ngFor="let student of selectedStudents">{{ student.firstName }} <button (click)="onRemoveStudent(student)">Remove</button></li>
-  </ul>
-
-  <button type="submit" [disabled]="selectedStudents.length < 1 || selectedStudents.length > 5">Create Team</button>
-</form> -->
 <h2 mat-dialog-title>Add Team</h2>
 <div mat-dialog-content>
-  <form [formGroup]="form">
+  <form [formGroup]="form" class="vertical-form">
     <mat-form-field>
       <input matInput placeholder="Team Name" formControlName="teamName">
     </mat-form-field>
