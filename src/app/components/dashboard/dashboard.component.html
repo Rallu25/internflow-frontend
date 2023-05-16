@@ -5,4 +5,30 @@
     <div class="button-right">
         <button mat-raised-button color="primary" (click)="openAddTeamDialog()">Add Team</button>
     </div>
+  <!--  <div class="student-cards">
+        <mat-card *ngFor="let student of students">
+            <mat-card-header>
+              <mat-card-title>{{ student.firstName }} {{ student.lastName }}</mat-card-title>
+              <mat-card-subtitle>{{ student.email }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+            
+            </mat-card-content>
+          </mat-card>
+    </div> -->
+
+    <div class="card-container">
+        <div class="card" *ngFor="let student of students">
+          <div class="name">{{ student.firstName }} {{ student.lastName }}</div>
+          <div class="email">{{ student.email }}</div>
+          <div class="actions">
+            <button mat-icon-button color="primary">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
 </div>

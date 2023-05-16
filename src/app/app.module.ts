@@ -22,7 +22,7 @@ import { StudentService } from './services/student.service';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddTeamDialogComponent } from './components/add-team-dialog/add-team-dialog.component';
-
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -48,7 +48,8 @@ import { AddTeamDialogComponent } from './components/add-team-dialog/add-team-di
     MatDialogModule, 
     ReactiveFormsModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatCardModule
 
   ],
   providers: [StudentService],

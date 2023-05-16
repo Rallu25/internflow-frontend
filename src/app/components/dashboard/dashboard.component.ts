@@ -13,6 +13,7 @@ import { AddTeamDialogComponent } from '../add-team-dialog/add-team-dialog.compo
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  students: Student[]=[];
   studentSelected: Student | undefined;
   constructor(
     private router: Router,
@@ -21,6 +22,9 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.studentService.searchStudents().subscribe((students) => {
+      this.students = students;
+    });
   }
 
   addStudent() {
