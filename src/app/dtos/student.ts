@@ -5,7 +5,7 @@ export class Student {
     firstName: string;
     lastName: string;
     email: string;
-    team: Team;
+    team: Team | null;
 
 
     constructor(student: Student) {
