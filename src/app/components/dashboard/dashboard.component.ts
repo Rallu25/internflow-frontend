@@ -6,6 +6,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddStudentDialogComponent } from '../add-student-dialog/add-student-dialog.component';
 import { Team } from 'src/app/dtos/team';
 import { AddTeamDialogComponent } from '../add-team-dialog/add-team-dialog.component';
+import { TeamService } from 'src/app/services/team.service';
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -13,18 +16,21 @@ import { AddTeamDialogComponent } from '../add-team-dialog/add-team-dialog.compo
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  students: Student[]=[];
+  students: Student[] = [];
   studentSelected: Student | undefined;
+  teams: Team[] = [];
   constructor(
     private router: Router,
     private studentService: StudentService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private teamService: TeamService
   ) { }
 
   ngOnInit(): void {
     this.studentService.searchStudents().subscribe((students) => {
       this.students = students;
     });
+    this.fetchTeams();
   }
 
   addStudent() {
@@ -53,14 +59,31 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  fetchTeams(): void {
+    this.teamService.searchTeams().subscribe((teams) => {
+      this.teams = teams;
+    });
+  }
+
   openAddTeamDialog(): void {
     const dialogRef = this.dialog.open(AddTeamDialogComponent, {
       width: '600px'
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.teamService.saveTeam(result).subscribe(
+          (newTeam) => {
+            console.log('New team added:', newTeam);
+            this.fetchTeams();
+          },
+          (error) => {
+            console.log('Error adding team:', error);
+          }
+        );
+      }
     });
+
   }
 
 

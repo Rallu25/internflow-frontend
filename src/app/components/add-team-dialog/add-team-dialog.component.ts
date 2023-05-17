@@ -65,11 +65,11 @@ export class AddTeamDialogComponent implements OnInit {
       students: [teamLeader, member1, member2, member3, member4].filter(member => !!member) 
       };
 
-
+   
       this.teamService.saveTeam(team).subscribe(response => {
         console.log('Team saved:', response);
       });
-  
+
     this.dialogRef.close();
   }
 
