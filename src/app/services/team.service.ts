@@ -13,15 +13,24 @@ export class TeamService {
 
   path = '/api/team';
 
-//   saveTeam(team: Team): Observable<Team> {
-//     return this.http.post<Team>(this.API_URL, team);
-//   }
-
 saveTeam(team: Team): Observable<Team> {
     return this.http.post(this.path, team).pipe(
         map((response: any) => {
             return new Team(response);
         })
+    );
+}
+
+searchTeams(): Observable<Team[]> {
+  return this.http.get(this.path)
+    .pipe(
+      map((response: unknown) => {
+        const teamList = (response as Team[]);
+        if (teamList) {
+            return teamList;
+        }
+        return [];
+      })
     );
 }
 }
