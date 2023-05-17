@@ -3,10 +3,11 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 import { StudentService } from 'src/app/services/student.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { TeamService } from 'src/app/services/team.service';
 
 
 import { Student } from 'src/app/dtos/student';
+import { Team } from 'src/app/dtos/team';
 
 
 
@@ -16,13 +17,14 @@ import { Student } from 'src/app/dtos/student';
   styleUrls: ['./add-team-dialog.component.scss']
 })
 export class AddTeamDialogComponent implements OnInit {
-  students: Student[] | undefined;
+  students: Student[] = [];
   form: FormGroup;
 
   constructor(
     private dialogRef: MatDialogRef<AddTeamDialogComponent>,
     private studentService: StudentService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private teamService: TeamService
   ) { 
     this.form = this.fb.group({
       teamName: ['', Validators.required],
@@ -56,8 +58,18 @@ export class AddTeamDialogComponent implements OnInit {
     const member3: Student = this.form.value.member3;
     const member4: Student = this.form.value.member4;
 
+    const team: Team = {
+      teamId: -1, 
+      teamName: teamName,
+      teamLeader: teamLeader,
+      students: [teamLeader, member1, member2, member3, member4].filter(member => !!member) 
+      };
 
 
+      this.teamService.saveTeam(team).subscribe(response => {
+        console.log('Team saved:', response);
+      });
+  
     this.dialogRef.close();
   }
 

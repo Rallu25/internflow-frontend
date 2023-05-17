@@ -28,6 +28,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddTeamDialogComponent } from './components/add-team-dialog/add-team-dialog.component';
 import { MatCardModule } from '@angular/material/card';
+import { TeamService } from './services/team.service';
 
 
 @NgModule({
@@ -60,7 +61,7 @@ import { MatCardModule } from '@angular/material/card';
 
 
   ],
-  providers: [StudentService],
+  providers: [StudentService, TeamService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

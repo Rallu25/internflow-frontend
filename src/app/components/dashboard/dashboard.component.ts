@@ -33,9 +33,7 @@ export class DashboardComponent implements OnInit {
       firstName: '',
       lastName: '',
       email: '',
-      team: new Team({
-        teamId: -1,
-      })
+      team: null,
     })
   }
   openAddStudentDialog() {
