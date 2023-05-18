@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Add Activity</h2>
+<div mat-dialog-content>
+  <form [formGroup]="form">
+    <mat-form-field>
+      <input matInput placeholder="Activity Name" formControlName="activityName">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancel()">Cancel</button>
+  <button mat-button color="primary" (click)="save()" [disabled]="form.invalid">Save</button>
+</div>
