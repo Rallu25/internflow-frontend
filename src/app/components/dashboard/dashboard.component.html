@@ -10,7 +10,7 @@
       <div class="name">{{ team.teamName }}</div>
       <div class="email">Team Leader: {{ team.teamLeader.firstName }} {{ team.teamLeader.lastName }}</div>
       <div class="actions">
-        <button mat-icon-button color="primary">
+        <button mat-icon-button color="primary" (click)="openStudentTableDialog(team)">
           <mat-icon>edit</mat-icon>
         </button>
         <button mat-icon-button color="warn">

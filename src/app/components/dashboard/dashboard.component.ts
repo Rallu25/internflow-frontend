@@ -7,6 +7,7 @@ import { AddStudentDialogComponent } from '../add-student-dialog/add-student-dia
 import { Team } from 'src/app/dtos/team';
 import { AddTeamDialogComponent } from '../add-team-dialog/add-team-dialog.component';
 import { TeamService } from 'src/app/services/team.service';
+import { TeamStudentsComponent } from '../team-students/team-students.component';
 
 
 
@@ -84,6 +85,13 @@ export class DashboardComponent implements OnInit {
       }
     });
 
+  }
+
+  openStudentTableDialog(team: Team): void {
+    const dialogRef = this.dialog.open(TeamStudentsComponent, {
+      width: '800px',
+      data: { team: team }
+    });
   }
 
 
