@@ -15,6 +15,7 @@ export class StudentService {
   constructor(private http: HttpClient) {}
 
   path = '/api/student';
+  
 
   searchStudents(): Observable<Student[]> {
     return this.http.get(this.path)
@@ -37,6 +38,19 @@ export class StudentService {
         })
       );
   }
+
+  getStudentsByTeam(teamId: number): Observable<Student[]> {
+    const url = `${this.API_URL}/teamId/${teamId}`;
+    return this.http.get<Student[]>(url).pipe(
+      map((response: Student[]) => {
+        return response.map((student) => new Student(student));
+      })
+    );
+  }
+  
+
+
+
 
 
 

@@ -7,7 +7,7 @@ import { Team } from '../dtos/team';
   providedIn: 'root'
 })
 export class TeamService {
-  private readonly API_URL = 'http://localhost:8080/api/team'; // Update the URL with your actual backend URL
+  private readonly API_URL = 'http://localhost:8080/api/team'; 
 
   constructor(private http: HttpClient) {}
 
