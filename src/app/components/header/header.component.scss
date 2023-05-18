@@ -2,13 +2,18 @@
 .container {
  
     position: fixed;
-    width: 100%;
-    z-index: 100;
-    top: 0;
-    //padding-left: 13%;
-    border-radius: 24px 24px 24px 24px;
-    box-shadow: 11px 10px 24px 4px rgba(0,0,0,0.55);
-    
+    top: 10px;
+    .mat-toolbar{
+      border-radius: 24px 24px 24px 24px;
+      box-shadow: 11px 10px 24px 4px rgba(0,0,0,0.55);
+    }
+    grid-row: 1;
+    grid-column: 2;
+    width: calc(100% - 300px); 
+    z-index: 1;
+    left: 280px; 
+    display: flex;
+    flex-direction: row;
   }
 
 header{

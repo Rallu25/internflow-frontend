@@ -26,6 +26,9 @@ import { AddTeamDialogComponent } from './components/add-team-dialog/add-team-di
 import { MatCardModule } from '@angular/material/card';
 import { TeamService } from './services/team.service';
 import { TeamStudentsComponent } from './components/team-students/team-students.component';
+import { LayoutComponent } from './components/layout/layout.component';
+import { ActivitiesComponent } from './components/activities/activities.component';
+import { AddActivityDialogComponent } from './components/add-activity-dialog/add-activity-dialog.component';
 
 
 @NgModule({
@@ -37,7 +40,10 @@ import { TeamStudentsComponent } from './components/team-students/team-students.
     SidebarComponent,
     DashboardComponent,
     AddTeamDialogComponent,
-    TeamStudentsComponent
+    TeamStudentsComponent,
+    LayoutComponent,
+    ActivitiesComponent,
+    AddActivityDialogComponent
   ],
   imports: [
     BrowserModule,
