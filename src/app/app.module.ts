@@ -29,6 +29,8 @@ import { TeamStudentsComponent } from './components/team-students/team-students.
 import { LayoutComponent } from './components/layout/layout.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
 import { AddActivityDialogComponent } from './components/add-activity-dialog/add-activity-dialog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 
 @NgModule({
@@ -63,6 +65,8 @@ import { AddActivityDialogComponent } from './components/add-activity-dialog/add
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
+    MatSnackBarModule
+    
     
     
 
