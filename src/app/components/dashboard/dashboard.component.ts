@@ -8,7 +8,7 @@ import { Team } from 'src/app/dtos/team';
 import { AddTeamDialogComponent } from '../add-team-dialog/add-team-dialog.component';
 import { TeamService } from 'src/app/services/team.service';
 import { TeamStudentsComponent } from '../team-students/team-students.component';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -24,7 +24,8 @@ export class DashboardComponent implements OnInit {
     private router: Router,
     private studentService: StudentService,
     private dialog: MatDialog,
-    private teamService: TeamService
+    private teamService: TeamService,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -92,6 +93,30 @@ export class DashboardComponent implements OnInit {
       width: '800px',
       data: { team: team }
     });
+  }
+
+  deleteTeam(team: Team): void {
+    const confirmation = confirm(`Are you sure you want to delete ${team.teamName}?`);
+    if (confirmation) {
+      this.teamService.deleteTeam(team.teamId).subscribe(
+        () => {
+          this.fetchTeams();
+          this.snackBar.open('Team deleted successfully!', 'Close', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top'
+          });
+        },
+        (error) => {
+          console.log('Error deleting team:', error);
+          this.snackBar.open('An error occurred while deleting the team.', 'Close', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top'
+          });
+        }
+      );
+    }
   }
 
 
