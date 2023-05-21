@@ -62,7 +62,7 @@ export class AddTeamDialogComponent implements OnInit {
       teamId: -1, 
       teamName: teamName,
       teamLeader: teamLeader,
-      students: [teamLeader, member1, member2, member3, member4].filter(member => !!member) 
+      students: [member1, member2, member3, member4].filter(member => !!member) 
       };
 
    

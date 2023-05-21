@@ -1,0 +1,45 @@
+.students-table {
+    margin-bottom: 20px;
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 4px;
+  
+      th {
+        padding: 10px;
+        text-align: left;
+        font-weight: bold;
+        border-bottom: 1px solid #ccc;
+      }
+  
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+
+    }
+  
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    #content { 
+      width: auto;
+      margin: 0 auto;
+  }
+
+  #dropDown    {
+      float: left;
+  }
+  
+  #button  {
+      height: 25px;
+      margin-left: 200px;
+  }
+    
+  }
+
+
+  
