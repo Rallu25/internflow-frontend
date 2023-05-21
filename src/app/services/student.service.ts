@@ -39,6 +39,14 @@ export class StudentService {
       );
   }
 
+  addStudentToTeam(teamId: number, student: Student) {
+    return this.http.post(this.path + `/team/${teamId}`, student);
+  }
+
+  removeStudentFromTeam(studentId: number) {
+    return this.http.delete(this.path + `/team/${studentId}`);
+  }
+
   getStudentsByTeam(teamId: number): Observable<Student[]> {
     const url = `${this.API_URL}/teamId/${teamId}`;
     return this.http.get<Student[]>(url).pipe(

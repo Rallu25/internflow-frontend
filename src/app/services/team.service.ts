@@ -35,7 +35,6 @@ searchTeams(): Observable<Team[]> {
 }
 
 deleteTeam(teamId: number) {
-  //const url = `${this.API_URL}/${teamId}`;
   return this.http.delete(this.path + `/${teamId}`);
 }
 }

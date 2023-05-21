@@ -1,20 +1,48 @@
-<h2>Students for Team: {{ team.teamName }}</h2>
+<div class="students-table">
+  <h2 mat-dialog-title>Students for Team: {{ team.teamName }}</h2>
+  <div mat-dialog-content id="content">
+    <div id="dropDown">
+    <form [formGroup]="form" class="vertical-form">
+      <mat-form-field>
+        <mat-label>Add Member</mat-label>
+        <mat-select formControlName="member">
+          <mat-option *ngFor="let student of allStudents" [value]="student">{{ student.firstName }} {{ student.lastName
+            }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+    </div>
+    <div mat-dialog-actions id="button">
+      <button mat-button color="primary" class="button-right" (click)="addMember()" [disabled]="!form.value.member || students.length > 4">Add</button>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let student of students">
-      <td>{{ student.firstName }}</td>
-      <td>{{ student.lastName }}</td>
-      <td>{{ student.email }}</td>
-    </tr>
-  </tbody>
-</table>
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students">
+          <td>{{ student.firstName }}</td>
+          <td>{{ student.lastName }}</td>
+          <td>{{ student.email }}</td>
+          <td>
+            <button mat-icon-button color="warn" *ngIf="student.studentId != team.teamLeader.studentId"
+              (click)="removeMember(student)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
-<button mat-button color="primary" (click)="closeDialog()">Close</button>
+    <div mat-dialog-actions>
+      <button mat-button color="primary" (click)="closeDialog()">Close</button>
+    </div>
+
+  </div>
+</div>
