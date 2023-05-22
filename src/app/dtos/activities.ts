@@ -5,7 +5,7 @@ export class Activities {
     activityId: number;
     activityName: string;
     grade: Grades | null; 
-    attendances: Attendance[] | null;
+    attendance: Attendance | null;
     
 
 
@@ -13,7 +13,7 @@ export class Activities {
         this.activityId = activities?.activityId;
         this.activityName = activities?.activityName;
         this.grade = activities?.grade;
-        this.attendances = activities?.attendances;
+        this.attendance = activities?.attendance;
         
     }
 }

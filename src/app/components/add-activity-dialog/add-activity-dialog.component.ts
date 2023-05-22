@@ -26,7 +26,7 @@ export class AddActivityDialogComponent {
       activityId: this.form.value.activityId,
       activityName: this.form.value.activityName,
       grade: this.form.value.grade,
-      attendances: this.form.value.attendances
+      attendance: this.form.value.attendances
        
     };
     this.dialogRef.close(activities);

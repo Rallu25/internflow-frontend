@@ -33,7 +33,9 @@ export class AddStudentDialogComponent {
       firstName: this.form.value.firstName,
       lastName: this.form.value.lastName,
       email: this.form.value.email,
-      team: this.form.value.team
+      team: this.form.value.team,
+      attendance: '',
+      grade: -1
       
     };
     this.dialogRef.close(student);

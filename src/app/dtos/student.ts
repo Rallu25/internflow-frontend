@@ -5,7 +5,9 @@ export class Student {
     firstName: string;
     lastName: string;
     email: string;
-    team: Team | null;
+    team: string;
+    attendance: string;
+    grade: number;
 
 
     constructor(student: Student) {
@@ -14,5 +16,7 @@ export class Student {
         this.lastName = student?.lastName;
         this.email = student?.email;
         this.team = student?.team;
+        this.attendance = student?.attendance;
+        this.grade = student?.grade;
     }
 }

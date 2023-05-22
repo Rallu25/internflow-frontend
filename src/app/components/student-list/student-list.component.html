@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Registered Students</h2>
-    <table mat-table [dataSource]="students" class="mat-elevation-z8">
+    <table mat-table [dataSource]="students" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
   
       
       <ng-container matColumnDef="id">
@@ -16,7 +16,7 @@
   
       
       <ng-container matColumnDef="last_name">
-        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by last name"> Last Name </th>
         <td mat-cell *matCellDef="let student"> {{ student.lastName }} </td>
       </ng-container>
   
@@ -32,8 +32,34 @@
         <td mat-cell *matCellDef="let student"> {{ student.team }} </td>
       </ng-container>
   
+      
+      <ng-container matColumnDef="attendance">
+        <th mat-header-cell *matHeaderCellDef> Attendance </th>
+        <td mat-cell *matCellDef="let student"> {{ student.attendance }} 
+          <button mat-icon-button color="primary" (click)="editAttendance(student)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+      
+      
+      <ng-container matColumnDef="grade">
+        <th mat-header-cell *matHeaderCellDef> Grade </th>
+        <td mat-cell *matCellDef="let student"> {{ student.grade }} 
+          <button mat-icon-button color="primary" (click)="editGrade(student)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+
   </div>
   

@@ -1,6 +1,21 @@
 <div class="container">
-    <div class="button-left">
-      <button mat-raised-button color="primary" (click)="openAddActivityDialog()">Add Activity</button>
+  <div class="button-left">
+    <button mat-raised-button color="primary" (click)="openAddActivityDialog()">Add Activity</button>
+  </div>
+  <div class="card-container">
+    <div class="card" *ngFor="let activity of activities">
+      <div class="name">{{ activity.activityName }}</div>
+      <div class="actions">
+        <button mat-icon-button color="primary" (click)="openStudentList(activity)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteActivity(activity)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
-  
+</div>
+
+<app-student-list *ngIf="displayStudentList" [activityId] = "activityId">
+</app-student-list>
