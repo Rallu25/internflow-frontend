@@ -30,6 +30,9 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
 import { AddActivityDialogComponent } from './components/add-activity-dialog/add-activity-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
+import { EditAttendanceDialogComponent } from './components/edit-attendance-dialog/edit-attendance-dialog.component';
+import { EditGradeDialogComponent } from './components/edit-grade-dialog/edit-grade-dialog.component';
 
 
 
@@ -45,7 +48,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     TeamStudentsComponent,
     LayoutComponent,
     ActivitiesComponent,
-    AddActivityDialogComponent
+    AddActivityDialogComponent,
+    EditAttendanceDialogComponent,
+    EditGradeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatSelectModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSortModule,
+    MatPaginatorModule
     
     
     

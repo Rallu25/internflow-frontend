@@ -28,5 +28,25 @@
         background-color: #f2f2f2;
       }
     }
+    
+  }
+
+  .container ::ng-deep .mat-paginator {
+    background-color: white;
+    color: black;
+  }
+  
+  .container ::ng-deep .mat-paginator-page-size,
+  .container ::ng-deep .mat-paginator-range-label {
+    color: black;
+  }
+  
+  .container ::ng-deep .mat-paginator-navigation-previous,
+  .container ::ng-deep .mat-paginator-navigation-next {
+    color: black;
+  }
+  
+  .container ::ng-deep .mat-paginator-page-size-options {
+    color: black;
   }
   

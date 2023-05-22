@@ -48,7 +48,7 @@ export class StudentService {
   }
 
   getStudentsByTeam(teamId: number): Observable<Student[]> {
-    const url = `${this.API_URL}/teamId/${teamId}`;
+    const url = this.path + `/teamId/${teamId}`;
     return this.http.get<Student[]>(url).pipe(
       map((response: Student[]) => {
         return response.map((student) => new Student(student));
@@ -56,7 +56,14 @@ export class StudentService {
     );
   }
   
-
+  getStudentsByActivity(activityId: number): Observable<Student[]> {
+    const url = this.path + `/activityId/${activityId}`;
+    return this.http.get<Student[]>(url).pipe(
+      map((response: Student[]) => {
+        return response.map((student) => new Student(student));
+      })
+    );
+  }
 
 
 
