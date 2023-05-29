@@ -1,12 +1,14 @@
+import { Student } from "./student";
+import { Activities } from "./activities";
 
 export class Attendance {
     attendanceId: number;
-    status: string ; 
-    
+    status: string;
+
     constructor(attendance: Attendance) {
-        this.attendanceId = attendance?.attendanceId;
-        this.status = attendance?.status;
-       
-        
+      this.attendanceId = attendance?.attendanceId;
+      this.status = attendance?.status;
+
     }
-}
+  }
+  

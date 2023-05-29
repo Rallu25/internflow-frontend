@@ -1,0 +1,39 @@
+.edit-attendance-dialog {
+    h2 {
+      mat-dialog-title {
+        margin-top: 0;
+      }
+    }
+  
+    mat-dialog-content {
+      .form-group {
+        .attendance-status-box {
+          display: flex;
+          align-items: center;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 8px;
+          margin-bottom: 10px;
+  
+          mat-label {
+            margin-right: 10px;
+          }
+  
+          mat-select {
+            flex: 1;
+          }
+        }
+      }
+    }
+  
+    mat-dialog-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+  
+      button {
+        margin-left: 8px;
+      }
+    }
+  }
+  
