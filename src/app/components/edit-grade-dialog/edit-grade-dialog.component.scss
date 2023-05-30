@@ -1,0 +1,40 @@
+:host {
+    display: block;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin: 0 0 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .grade-box {
+    display: flex;
+    align-items: center;
+  }
+  
+  mat-label {
+    margin-right: 10px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  .mat-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  button {
+    margin-left: 10px;
+  }
+  
