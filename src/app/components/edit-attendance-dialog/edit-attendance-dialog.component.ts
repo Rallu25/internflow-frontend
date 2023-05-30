@@ -16,7 +16,7 @@ export class EditAttendanceDialogComponent {
     private dialogRef: MatDialogRef<EditAttendanceDialogComponent>,
     private fb: FormBuilder,
     private attendanceService: AttendanceService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    
   ) {
     this.form = this.fb.group({
       selectedStatus: ['', Validators.required]

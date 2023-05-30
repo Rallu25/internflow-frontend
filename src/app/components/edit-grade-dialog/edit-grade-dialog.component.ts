@@ -16,7 +16,7 @@ export class EditGradeDialogComponent {
     private dialogRef: MatDialogRef<EditGradeDialogComponent>,
     private fb: FormBuilder,
     private gradesService: GradesService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    
   ) {
     this.form = this.fb.group({
       selectedGrade: ['', Validators.required],
