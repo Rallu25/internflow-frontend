@@ -9,6 +9,7 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { EditAttendanceDialogComponent } from '../edit-attendance-dialog/edit-attendance-dialog.component';
 import { EditGradeDialogComponent } from '../edit-grade-dialog/edit-grade-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Attendance } from 'src/app/dtos/attendance';
 
 
 @Component({
@@ -59,7 +60,7 @@ export class StudentListComponent implements OnInit, AfterViewInit {
   editAttendance(student: Student): void {
     const dialogRef = this.dialog.open(EditAttendanceDialogComponent, {
       width: '800px',
-      data: { studentId: student.studentId, student: student }
+      data: { studentId: student.studentId, student: student, activityId: this.activityId}
     });
   }
 

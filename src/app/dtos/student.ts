@@ -18,5 +18,6 @@ export class Student {
         this.team = student?.team;
         this.attendance = student?.attendance;
         this.grade = student?.grade;
+       
     }
 }
