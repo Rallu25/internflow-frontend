@@ -35,7 +35,8 @@ export class EditAttendanceDialogComponent {
     const attendance: Attendance = {
       attendanceId: -1,
       status: selectedStatus,
-      studentId: this.data.studentId
+      studentId: this.data.studentId,
+      activityId: this.data.activityId
     };
 
     this.attendanceService.saveAttendance(attendance).subscribe(
