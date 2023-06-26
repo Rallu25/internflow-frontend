@@ -59,7 +59,7 @@ export class StudentListComponent implements OnInit, AfterViewInit {
   editAttendance(student: Student): void {
     const dialogRef = this.dialog.open(EditAttendanceDialogComponent, {
       width: '800px',
-      data: { student: student }
+      data: { studentId: student.studentId, student: student }
     });
   }
 
