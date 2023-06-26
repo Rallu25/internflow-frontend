@@ -16,6 +16,7 @@ export class EditAttendanceDialogComponent {
     private dialogRef: MatDialogRef<EditAttendanceDialogComponent>,
     private fb: FormBuilder,
     private attendanceService: AttendanceService,
+    @Inject(MAT_DIALOG_DATA) public data: any
     
   ) {
     this.form = this.fb.group({
@@ -34,7 +35,7 @@ export class EditAttendanceDialogComponent {
     const attendance: Attendance = {
       attendanceId: -1,
       status: selectedStatus,
-      studentId: 3
+      studentId: this.data.studentId
     };
 
     this.attendanceService.saveAttendance(attendance).subscribe(
