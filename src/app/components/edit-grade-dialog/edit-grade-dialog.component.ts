@@ -16,6 +16,7 @@ export class EditGradeDialogComponent {
     private dialogRef: MatDialogRef<EditGradeDialogComponent>,
     private fb: FormBuilder,
     private gradesService: GradesService,
+    @Inject(MAT_DIALOG_DATA) public data: any
     
   ) {
     this.form = this.fb.group({
@@ -35,7 +36,9 @@ export class EditGradeDialogComponent {
     const grade: Grades = {
       gradeId: 0,
       gradeValue: selectedGrade,
-      comment: comment
+      comment: comment,
+      studentId: this.data.studentId,
+      activityId: this.data.activityId
     };
 
     this.gradesService.saveGrade(grade).subscribe(
