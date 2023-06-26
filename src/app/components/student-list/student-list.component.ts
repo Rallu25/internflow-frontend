@@ -67,7 +67,7 @@ export class StudentListComponent implements OnInit, AfterViewInit {
   editGrade(student: Student): void {
     const dialogRef = this.dialog.open(EditGradeDialogComponent, {
       width: '800px',
-      data: { student: student }
+      data: { student: student, studentId: student.studentId, activityId: this.activityId}
     });
   }
 
