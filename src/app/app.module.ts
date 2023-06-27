@@ -33,7 +33,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { EditAttendanceDialogComponent } from './components/edit-attendance-dialog/edit-attendance-dialog.component';
 import { EditGradeDialogComponent } from './components/edit-grade-dialog/edit-grade-dialog.component';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -73,6 +73,7 @@ import { EditGradeDialogComponent } from './components/edit-grade-dialog/edit-gr
     MatSnackBarModule,
     MatSortModule,
     MatPaginatorModule,
+    MatAutocompleteModule
 
     
     
