@@ -6,6 +6,7 @@ import { ActivitiesService } from 'src/app/services/activities.service';
 import { DialogRef } from '@angular/cdk/dialog';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivityEventService } from 'src/app/services/activity-event-service';
 
 
 @Component({
@@ -24,10 +25,14 @@ export class ActivitiesComponent implements OnInit{
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
     private router: Router,
-    private elementRef: ElementRef
+    private elementRef: ElementRef,
+    private activityEventService: ActivityEventService
   ) { }
   ngOnInit(): void {
     this.fetchActivities();
+    this.activityEventService.activityAdded$.subscribe(() => {
+      this.fetchActivities();
+    });
   }
 
   fetchActivities() {
@@ -54,6 +59,7 @@ export class ActivitiesComponent implements OnInit{
       if (result){
         this.activitiesService.saveActivity(result).subscribe(newActivity => {
           console.log('New activity added:', newActivity);
+          this.activityEventService.triggerActivityAdded();
         
         }, error => {
           console.log('Error adding activity:',error);

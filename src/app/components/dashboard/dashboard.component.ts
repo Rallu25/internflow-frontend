@@ -9,7 +9,7 @@ import { AddTeamDialogComponent } from '../add-team-dialog/add-team-dialog.compo
 import { TeamService } from 'src/app/services/team.service';
 import { TeamStudentsComponent } from '../team-students/team-students.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { EventService } from 'src/app/services/event-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -25,7 +25,8 @@ export class DashboardComponent implements OnInit {
     private studentService: StudentService,
     private dialog: MatDialog,
     private teamService: TeamService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private eventService: EventService
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +34,9 @@ export class DashboardComponent implements OnInit {
       this.students = students;
     });
     this.fetchTeams();
-    
+    this.eventService.teamAdded$.subscribe(() => {
+      this.fetchTeams(); 
+    });
   }
 
   addStudent() {
