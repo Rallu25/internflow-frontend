@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-
 import { StudentService } from 'src/app/services/student.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TeamService } from 'src/app/services/team.service';
-
-
 import { Student } from 'src/app/dtos/student';
 import { Team } from 'src/app/dtos/team';
-
-
 
 @Component({
   selector: 'app-add-team-dialog',
@@ -24,7 +19,7 @@ export class AddTeamDialogComponent implements OnInit {
     private dialogRef: MatDialogRef<AddTeamDialogComponent>,
     private studentService: StudentService,
     private fb: FormBuilder,
-    private teamService: TeamService
+    private teamService: TeamService,
   ) { 
     this.form = this.fb.group({
       teamName: ['', Validators.required],
