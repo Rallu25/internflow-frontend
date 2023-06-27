@@ -1,4 +1,4 @@
-<div class="container">
+<div id="studentTable" class="container">
     <h2>Registered Students</h2>
     <table mat-table [dataSource]="students" matSort (matSortChange)="announceSortChange($event)" class="mat-elevation-z8">
   
@@ -42,15 +42,22 @@
         </td>
       </ng-container>
       
-      
       <ng-container matColumnDef="grade">
         <th mat-header-cell *matHeaderCellDef> Grade </th>
-        <td mat-cell *matCellDef="let student"> {{ student.grade }} 
+        <td mat-cell *matCellDef="let student">
+          <ng-container *ngIf="student.grade !== null; else noGrade">
+            {{ student.grade }}
+          </ng-container>
+          <ng-template #noGrade>
+            <span></span>
+          </ng-template>
           <button mat-icon-button color="primary" (click)="editGrade(student)">
             <mat-icon>edit</mat-icon>
           </button>
         </td>
       </ng-container>
+      
+      
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

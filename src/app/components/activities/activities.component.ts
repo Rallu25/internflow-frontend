@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { AddActivityDialogComponent } from '../add-activity-dialog/add-activity-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Activities } from 'src/app/dtos/activities';
@@ -23,7 +23,8 @@ export class ActivitiesComponent implements OnInit{
     private activitiesService: ActivitiesService,
     private dialog: MatDialog,
     private snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private elementRef: ElementRef
   ) { }
   ngOnInit(): void {
     this.fetchActivities();
@@ -88,7 +89,15 @@ export class ActivitiesComponent implements OnInit{
   openStudentList(activity: Activities) {
     this.displayStudentList = !this.displayStudentList;
     this.activityId = activity.activityId;
+  
+    if (this.displayStudentList) {
+      setTimeout(() => {
+        const tableElement = this.elementRef.nativeElement.querySelector('#studentTable');
+        tableElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
   }
+  
   
 }
 

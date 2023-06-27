@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { StudentService } from 'src/app/services/student.service';
 import { Student } from 'src/app/dtos/student';
@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit {
       this.students = students;
     });
     this.fetchTeams();
+    
   }
 
   addStudent() {
@@ -84,7 +85,9 @@ export class DashboardComponent implements OnInit {
           (error) => {
             console.log('Error adding team:', error);
           }
+          
         );
+        
       }
     });
 
@@ -95,6 +98,7 @@ export class DashboardComponent implements OnInit {
       width: '800px',
       data: { team: team }
     });
+    
   }
 
   deleteTeam(team: Team): void {
@@ -118,6 +122,7 @@ export class DashboardComponent implements OnInit {
           });
         }
       );
+      
     }
   }
 
