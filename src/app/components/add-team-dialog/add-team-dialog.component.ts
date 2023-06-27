@@ -73,5 +73,3 @@ export class AddTeamDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 }
-  
-
