@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TeamService } from 'src/app/services/team.service';
 import { Student } from 'src/app/dtos/student';
 import { Team } from 'src/app/dtos/team';
+import { EventService } from 'src/app/services/event-service';
 
 @Component({
   selector: 'app-add-team-dialog',
@@ -20,6 +21,7 @@ export class AddTeamDialogComponent implements OnInit {
     private studentService: StudentService,
     private fb: FormBuilder,
     private teamService: TeamService,
+    private eventService: EventService
   ) { 
     this.form = this.fb.group({
       teamName: ['', Validators.required],
@@ -59,11 +61,10 @@ export class AddTeamDialogComponent implements OnInit {
       teamLeader: teamLeader,
       students: [member1, member2, member3, member4].filter(member => !!member) 
       };
-
-   
       this.teamService.saveTeam(team).subscribe(response => {
         console.log('Team saved:', response);
-      });
+        this.eventService.triggerTeamAdded();
+      });  
 
     this.dialogRef.close();
   }

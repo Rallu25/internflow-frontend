@@ -2,6 +2,7 @@ import { Component, Inject} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Activities } from 'src/app/dtos/activities';
+import { ActivityEventService } from 'src/app/services/activity-event-service';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class AddActivityDialogComponent {
   constructor(
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<AddActivityDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private activityEventService: ActivityEventService
   ) {
     this.form = this.fb.group({
       activityName: ['', Validators.required],
