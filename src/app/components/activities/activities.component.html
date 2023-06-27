@@ -5,10 +5,12 @@
   <div class="card-container">
     <div class="card" *ngFor="let activity of activities">
       <div class="name">{{ activity.activityName }}</div>
-      <div class="actions">
+      <div class="edit-action">
         <button mat-icon-button color="primary" (click)="openStudentList(activity)">
           <mat-icon>edit</mat-icon>
         </button>
+      </div>
+      <div class="delete-action">
         <button mat-icon-button color="warn" (click)="deleteActivity(activity)">
           <mat-icon>delete</mat-icon>
         </button>
