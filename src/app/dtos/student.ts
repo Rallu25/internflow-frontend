@@ -1,4 +1,3 @@
-import { Team } from "./team";
 
 export class Student {
     studentId: number;
@@ -16,7 +15,7 @@ export class Student {
         this.lastName = student?.lastName;
         this.email = student?.email;
         this.team = student?.team;
-        this.attendance = student?.attendance;
+        this.attendance = student.attendance;
         this.grade = student?.grade;
        
     }

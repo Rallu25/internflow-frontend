@@ -1,16 +1,15 @@
-import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, Input, ViewChild } from '@angular/core';
-import { OnInit, ChangeDetectorRef } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
+import { OnInit} from '@angular/core';
 import { Student } from 'src/app/dtos/student';
 import { StudentService } from 'src/app/services/student.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { EditAttendanceDialogComponent } from '../edit-attendance-dialog/edit-attendance-dialog.component';
 import { EditGradeDialogComponent } from '../edit-grade-dialog/edit-grade-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Attendance } from 'src/app/dtos/attendance';
-
+import { AttendanceService } from 'src/app/services/attendance.service';
 
 @Component({
   selector: 'app-student-list',
@@ -38,6 +37,7 @@ export class StudentListComponent implements OnInit, AfterViewInit {
   }
 
   constructor(private studentService: StudentService,
+    private attendanceService: AttendanceService,
     private _liveAnnouncer: LiveAnnouncer,
     private dialog: MatDialog,) { }
 
@@ -58,11 +58,26 @@ export class StudentListComponent implements OnInit, AfterViewInit {
   }
 
   editAttendance(student: Student): void {
-    const dialogRef = this.dialog.open(EditAttendanceDialogComponent, {
-      width: '800px',
-      data: { studentId: student.studentId, student: student, activityId: this.activityId}
-    });
+    const attendanceStatus = student.attendance ? 'absent' : 'present';
+  
+    const attendance: Attendance = {
+      attendanceId: -1,
+      status: attendanceStatus,
+      studentId: student.studentId,
+      activityId: this.activityId
+    };
+  
+    this.attendanceService.saveAttendance(attendance).subscribe(
+      (response) => {
+        console.log('Attendance saved successfully:', response);
+        student.attendance = attendanceStatus; // Update the attendance status in the frontend
+      },
+      (error) => {
+        console.log('Error saving attendance:', error);
+      }
+    );
   }
+  
 
   editGrade(student: Student): void {
     const grade = student.grade ? student.grade : null;
