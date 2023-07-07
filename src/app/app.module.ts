@@ -31,9 +31,9 @@ import { ActivitiesComponent } from './components/activities/activities.componen
 import { AddActivityDialogComponent } from './components/add-activity-dialog/add-activity-dialog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
-import { EditAttendanceDialogComponent } from './components/edit-attendance-dialog/edit-attendance-dialog.component';
 import { EditGradeDialogComponent } from './components/edit-grade-dialog/edit-grade-dialog.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 @NgModule({
@@ -49,36 +49,34 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     LayoutComponent,
     ActivitiesComponent,
     AddActivityDialogComponent,
-    EditAttendanceDialogComponent,
     EditGradeDialogComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    CommonModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatTableModule,
-    MatPaginatorModule,
-    HttpClientModule,
-    MatDialogModule, 
-    ReactiveFormsModule,
-    MatInputModule,
-    FormsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatIconModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatPaginatorModule,
-    MatAutocompleteModule
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        CommonModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatTableModule,
+        MatPaginatorModule,
+        HttpClientModule,
+        MatDialogModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        FormsModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatIconModule,
+        MatSnackBarModule,
+        MatSortModule,
+        MatPaginatorModule,
+        MatAutocompleteModule,
+        MatCheckboxModule
 
-    
-    
 
-  ],
+    ],
   providers: [StudentService, TeamService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
