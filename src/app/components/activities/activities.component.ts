@@ -18,7 +18,7 @@ export class ActivitiesComponent implements OnInit{
   activities: Activities[] = [];
   activitySelected: Activities | undefined;
   displayStudentList = false;
-  activityId: number | undefined;
+  activityId!: number;
 
   constructor(
     private activitiesService: ActivitiesService,
