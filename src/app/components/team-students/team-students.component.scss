@@ -41,5 +41,39 @@
     
   }
 
+  .students-for-team-title {
+    font-family: WorkSans;
+    text-align: center;
+    color: #534576;
+  }
+  
+  .btn-cancel {
+    background-color: #74649e;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    border: 1px solid #aaaaaa;
+    border-radius: 16px;
+    padding: 8px 35px;
 
+    &:hover {
+      background-color: #534576;
+      color:  #929292;
+    }
+    font-family: WorkSans;
+  }
+
+  .custom-label {
+    font-family: WorkSans;
+  }
+
+  .button-right{
+    font-family: WorkSans;
+  }
+
+  .custom-table{
+    font-family: WorkSans;
+  color: #072F49;
+
+  }
   

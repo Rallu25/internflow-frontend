@@ -1,20 +1,18 @@
-<h2 mat-dialog-title>Edit Grade</h2>
+<h2 mat-dialog-title class="edit-grade-title">Edit Grade</h2>
 <mat-dialog-content [formGroup]="form">
   <div class="form-group">
     <div class="grade-box">
       <mat-label for="grade">Grade:</mat-label>
-      <mat-select id="grade" formControlName="selectedGrade">
-        <mat-option *ngFor="let option of gradeOptions" [value]="option">{{ option || '-' }}</mat-option>
-      </mat-select>
+      <input type="number" id="grade" formControlName="selectedGrade" class="form-control" step="1">
     </div>
   </div>
   <div class="form-group">
-    <mat-form-field>
+    <mat-form-field class="custom-text">
       <textarea matInput placeholder="Comment" formControlName="comment"></textarea>
     </mat-form-field>
   </div>
 </mat-dialog-content>
 <div mat-dialog-actions>
-  <button mat-button (click)="cancel()">Cancel</button>
-  <button mat-button color="primary" (click)="saveGrade()">Save</button>
+  <button mat-button class="btn-cancel" (click)="cancel()">Cancel</button>
+  <button mat-button class="btn-save" (click)="saveGrade()">Save</button>
 </div>

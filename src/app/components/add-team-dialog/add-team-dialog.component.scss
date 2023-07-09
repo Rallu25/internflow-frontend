@@ -1,46 +1,99 @@
-:host ::ng-deep .dialog-container {
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 5px;
 
-  h2 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-  }
+mat-form-field,
+mat-select {
+  width: 100%;
+  margin-bottom: 20px;
+}
 
-  form {
-    display: flex;
-    flex-direction: column;
+mat-label {
+  font-size: 14px;
+}
 
-    label {
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
+mat-select {
+  font-size: 16px;
+}
 
-    mat-form-field {
-      margin-bottom: 10px;
-      width: 100%;
-    }
+mat-form-field,
+mat-select {
+  border-radius: 4px;
+}
 
-    button[type="submit"] {
-      margin-top: 20px;
-    }
-  }
+.mat-dialog-actions {
+  justify-content: flex-end;
+  margin-top: 20px;
+}
 
-  .mat-dialog-actions {
-    justify-content: flex-end;
-    margin-top: 20px;
-  }
+button.mat-button {
+  margin-left: 10px;
+}
 
-  .buttons {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 24px;
+button.mat-button[color="primary"] {
+  background-color: #007bff;
+  color: white;
+}
 
-    button {
-      margin-left: 16px;
-    }
+button.mat-button[color="primary"]:hover {
+  background-color: #0069d9;
+}
+
+button.mat-button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+.btn-save {
+  background-color: #74649e;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  border: 1px solid #aaaaaa;
+  border-radius: 16px;
+  padding: 8px 35px;
+  font-family: WorkSans;
+
+  &:hover {
+    background-color: #534576;
+    color:  #929292;
   }
 }
+
+.btn-cancel {
+  background-color: #74649e;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  border: 1px solid #aaaaaa;
+  border-radius: 16px;
+  padding: 8px 35px;
+
+  &:hover {
+    background-color: #534576;
+    color:  #929292;
+  }
+  font-family: WorkSans;
+}
+
+.add-team-title {
+  font-family: WorkSans;
+  text-align: center;
+  color: #534576;
+}
+
+.vertical-form input {
+  font-family: WorkSans;
+  color: #072F49;
+}
+
+.custom-form-field {
+  font-family: WorkSans;
+}
+
+.custom-label {
+  font-family: WorkSans;
+}
+
+.custom-select {
+  font-family: WorkSans;
+}
+

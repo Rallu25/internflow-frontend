@@ -10,7 +10,7 @@ import { EventService } from 'src/app/services/event-service';
 @Component({
   selector: 'app-add-team-dialog',
   templateUrl: './add-team-dialog.component.html',
-  styleUrls: ['./add-team-dialog.component.scss']
+  styleUrls: ['./add-team-dialog.component.scss'],
 })
 export class AddTeamDialogComponent implements OnInit {
   students: Student[] = [];

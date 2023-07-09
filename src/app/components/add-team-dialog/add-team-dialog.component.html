@@ -1,42 +1,42 @@
-<h2 mat-dialog-title>Add Team</h2>
+<h2 mat-dialog-title class="add-team-title">Add Team</h2>
 <div mat-dialog-content>
   <form [formGroup]="form" class="vertical-form">
     <mat-form-field>
       <input matInput placeholder="Team Name" formControlName="teamName">
     </mat-form-field>
-    <mat-form-field>
-      <mat-label>Team Leader</mat-label>
-      <mat-select formControlName="teamLeader">
+    <mat-form-field class="custom-form-field">
+      <mat-label class="custom-label">Team Leader</mat-label>
+      <mat-select formControlName="teamLeader" class="custom-select">
         <mat-option *ngFor="let student of students" [value]="student">{{ student.firstName }} {{ student.lastName }}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
-      <mat-label>Member 1</mat-label>
-      <mat-select formControlName="member1">
+    <mat-form-field class="custom-form-field">
+      <mat-label class="custom-label">Member 1</mat-label>
+      <mat-select formControlName="member1" class="custom-select">
         <mat-option *ngFor="let student of students" [value]="student">{{ student.firstName }} {{ student.lastName }}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
-      <mat-label>Member 2</mat-label>
-      <mat-select formControlName="member2">
+    <mat-form-field class="custom-form-field">
+      <mat-label class="custom-label">Member 2</mat-label>
+      <mat-select formControlName="member2" class="custom-select">
         <mat-option *ngFor="let student of students" [value]="student">{{ student.firstName }} {{ student.lastName }}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
-      <mat-label>Member 3</mat-label>
-      <mat-select formControlName="member3">
+    <mat-form-field class="custom-form-field">
+      <mat-label class="custom-label">Member 3</mat-label>
+      <mat-select formControlName="member3" class="custom-select">
         <mat-option *ngFor="let student of students" [value]="student">{{ student.firstName }} {{ student.lastName }}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
-      <mat-label>Member 4</mat-label>
-      <mat-select formControlName="member4">
+    <mat-form-field class="custom-form-field">
+      <mat-label class="custom-label">Member 4</mat-label>
+      <mat-select formControlName="member4" class="custom-select">
         <mat-option *ngFor="let student of students" [value]="student">{{ student.firstName }} {{ student.lastName }}</mat-option>
       </mat-select>
     </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="cancel()">Cancel</button>
-  <button mat-button color="primary" (click)="save()" [disabled]="form.invalid">Save</button>
+  <button mat-button class="btn-cancel" (click)="cancel()">Cancel</button>
+  <button mat-button class="btn-save" color="primary" (click)="save()" [disabled]="form.invalid">Save</button>
 </div>
