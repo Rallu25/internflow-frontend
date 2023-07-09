@@ -10,7 +10,6 @@ import { GradesService } from 'src/app/services/grades.service';
   styleUrls: ['./edit-grade-dialog.component.scss']
 })
 export class EditGradeDialogComponent {
-  gradeOptions: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   form: FormGroup;
 
   constructor(
@@ -18,10 +17,9 @@ export class EditGradeDialogComponent {
     private fb: FormBuilder,
     private gradesService: GradesService,
     @Inject(MAT_DIALOG_DATA) public data: any
-    
   ) {
     this.form = this.fb.group({
-      selectedGrade: ['', Validators.required],
+      selectedGrade: ['', [Validators.required, Validators.pattern('^[1-9][0-9]?$|^100$')]],
       comment: ['']
     });
   }

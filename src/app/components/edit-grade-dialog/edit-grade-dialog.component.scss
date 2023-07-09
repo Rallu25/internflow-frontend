@@ -1,14 +1,11 @@
-:host {
-    display: block;
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin: 0 0 20px;
-  }
-  
+
+    
   .form-group {
     margin-bottom: 20px;
+  }
+
+  .custom-text textarea{
+    font-family: WorkSans;
   }
   
   .grade-box {
@@ -36,5 +33,64 @@
   
   button {
     margin-left: 10px;
+  }
+  
+  .form-control {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #000000;
+
+  }
+  
+  .form-control:hover {
+    border-color: #999;
+  }
+
+  .edit-grade-title{
+    font-family: WorkSans;
+    text-align: center;
+    color: #534576;
+  }
+
+  .btn-save {
+    background-color: #74649e;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    border: 1px solid #aaaaaa;
+    border-radius: 16px;
+    padding: 8px 35px;
+    font-family: WorkSans;
+
+    &:hover {
+      background-color: #534576;
+      color:  #929292;
+    }
+  }
+
+  .btn-cancel {
+    background-color: #74649e;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    border: 1px solid #aaaaaa;
+    border-radius: 16px;
+    padding: 8px 35px;
+
+    &:hover {
+      background-color: #534576;
+      color:  #929292;
+    }
+    font-family: WorkSans;
+  }
+
+  .grade-box{
+    font-family: WorkSans;
   }
   
