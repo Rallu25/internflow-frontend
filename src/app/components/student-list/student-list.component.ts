@@ -10,6 +10,8 @@ import { EditGradeDialogComponent } from '../edit-grade-dialog/edit-grade-dialog
 import { MatDialog } from '@angular/material/dialog';
 import { Attendance } from 'src/app/dtos/attendance';
 import { AttendanceService } from 'src/app/services/attendance.service';
+import { GradeEventService } from 'src/app/services/grade-event-service';
+
 
 @Component({
   selector: 'app-student-list',
@@ -25,7 +27,8 @@ export class StudentListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild(MatSort) sort: MatSort | undefined;
 
-  @Input() activityId: number | undefined;
+  @Input() activityId!: number;
+  
 
   ngAfterViewInit() {
     if (this.sort) {
@@ -39,6 +42,7 @@ export class StudentListComponent implements OnInit, AfterViewInit {
   constructor(private studentService: StudentService,
     private attendanceService: AttendanceService,
     private _liveAnnouncer: LiveAnnouncer,
+    private gradeEventService: GradeEventService,
     private dialog: MatDialog,) { }
 
   ngOnInit(): void {
@@ -47,6 +51,12 @@ export class StudentListComponent implements OnInit, AfterViewInit {
         this.students = students;
       });
     }
+    this.gradeEventService.gradeAdded$.subscribe(() => {
+      this.studentService.getStudentsByActivity(this.activityId).subscribe((students) => {
+        this.students = students;
+        this.dataSource.data = this.students;
+      });
+    });
   }
 
   announceSortChange(sortState: Sort) {
@@ -70,7 +80,7 @@ export class StudentListComponent implements OnInit, AfterViewInit {
     this.attendanceService.saveAttendance(attendance).subscribe(
       (response) => {
         console.log('Attendance saved successfully:', response);
-        student.attendance = attendanceStatus; // Update the attendance status in the frontend
+        student.attendance = attendanceStatus;
       },
       (error) => {
         console.log('Error saving attendance:', error);

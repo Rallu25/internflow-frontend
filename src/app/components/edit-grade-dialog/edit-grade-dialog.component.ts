@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Grades } from 'src/app/dtos/grades';
 import { GradesService } from 'src/app/services/grades.service';
+import { GradeEventService } from 'src/app/services/grade-event-service';
 
 @Component({
   selector: 'app-edit-grade-dialog',
@@ -16,6 +17,7 @@ export class EditGradeDialogComponent {
     private dialogRef: MatDialogRef<EditGradeDialogComponent>,
     private fb: FormBuilder,
     private gradesService: GradesService,
+    private gradeEventService: GradeEventService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.form = this.fb.group({
@@ -43,6 +45,7 @@ export class EditGradeDialogComponent {
     this.gradesService.saveGrade(grade).subscribe(
       (response) => {
         console.log('Grade saved successfully:', response);
+        this.gradeEventService.triggerGradeAdded();
         this.dialogRef.close();
       },
       (error) => {
