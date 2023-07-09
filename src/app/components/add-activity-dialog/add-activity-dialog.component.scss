@@ -72,6 +72,7 @@
   border-radius: 16px;
   padding: 8px 35px;
   font-family: WorkSans;
+  margin-left: auto;
 
   &:hover {
     background-color: #534576;
@@ -87,6 +88,7 @@
   border: 1px solid #aaaaaa;
   border-radius: 16px;
   padding: 8px 35px;
+  margin-right: auto;
 
   &:hover {
     background-color: #534576;
@@ -94,6 +96,11 @@
   }
   font-family: WorkSans;
 }
+
+.spacer {
+  flex-grow: 1;
+}
+
 
 .vertical-form input {
   font-family: WorkSans;

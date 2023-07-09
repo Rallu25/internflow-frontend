@@ -37,6 +37,10 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { GradeEventService } from './services/grade-event-service';
+import { SearchPipe } from './search.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+
 
 @NgModule({
   declarations: [
@@ -51,7 +55,8 @@ import { GradeEventService } from './services/grade-event-service';
     LayoutComponent,
     ActivitiesComponent,
     AddActivityDialogComponent,
-    EditGradeDialogComponent
+    EditGradeDialogComponent,
+    SearchPipe
   ],
     imports: [
         BrowserModule,
@@ -77,9 +82,8 @@ import { GradeEventService } from './services/grade-event-service';
         MatAutocompleteModule,
         MatCheckboxModule,
         MatDatepickerModule,
-        MatNativeDateModule
-
-
+        MatNativeDateModule,
+        NgxPaginationModule,
     ],
   providers: [StudentService, TeamService, GradeEventService],
   bootstrap: [AppComponent],

@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
-import { OnInit} from '@angular/core';
+import { OnInit, ViewEncapsulation} from '@angular/core';
 import { Student } from 'src/app/dtos/student';
 import { StudentService } from 'src/app/services/student.service';
 import { MatPaginator } from '@angular/material/paginator';
@@ -16,39 +16,35 @@ import { GradeEventService } from 'src/app/services/grade-event-service';
 @Component({
   selector: 'app-student-list',
   templateUrl: './student-list.component.html',
-  styleUrls: ['./student-list.component.scss']
-
+  styleUrls: ['./student-list.component.scss'],
+  encapsulation: ViewEncapsulation.None 
+  
 })
 export class StudentListComponent implements OnInit, AfterViewInit {
   students: Student[] = [];
   displayedColumns: string[] = ['id', 'first_name', 'last_name', 'email', 'team', 'attendance', 'grade'];
-  dataSource = new MatTableDataSource(this.students);
-
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-  @ViewChild(MatSort) sort: MatSort | undefined;
-
+  dataSource: MatTableDataSource<Student>;
+  searchText = '';
+  p:number = 1;
   @Input() activityId!: number;
-  
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  ngAfterViewInit() {
-    if (this.sort) {
-      this.dataSource.sort = this.sort;
-    }
-    if (this.paginator) {
-      this.dataSource.paginator = this.paginator;
-    }
-  }
-
-  constructor(private studentService: StudentService,
+  constructor(
+    private studentService: StudentService,
     private attendanceService: AttendanceService,
     private _liveAnnouncer: LiveAnnouncer,
     private gradeEventService: GradeEventService,
-    private dialog: MatDialog,) { }
+    private dialog: MatDialog
+  ) { 
+    this.dataSource = new MatTableDataSource<Student>();
+  }
 
   ngOnInit(): void {
     if (this.activityId) {
       this.studentService.getStudentsByActivity(this.activityId).subscribe((students) => {
         this.students = students;
+        this.dataSource.data = this.students;
       });
     }
     this.gradeEventService.gradeAdded$.subscribe(() => {
@@ -57,6 +53,12 @@ export class StudentListComponent implements OnInit, AfterViewInit {
         this.dataSource.data = this.students;
       });
     });
+    //this.dataSource.paginator = this.paginator;
+  }
+
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   announceSortChange(sortState: Sort) {
@@ -88,7 +90,6 @@ export class StudentListComponent implements OnInit, AfterViewInit {
     );
   }
   
-
   editGrade(student: Student): void {
     const grade = student.grade ? student.grade : null;
     const dialogRef = this.dialog.open(EditGradeDialogComponent, {
@@ -97,5 +98,8 @@ export class StudentListComponent implements OnInit, AfterViewInit {
     });
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  
 }
-
