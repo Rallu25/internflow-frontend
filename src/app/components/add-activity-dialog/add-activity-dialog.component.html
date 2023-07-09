@@ -1,6 +1,12 @@
+
 <h2 mat-dialog-title class="activity-title">Add Activity</h2>
 <div mat-dialog-content>
   <form [formGroup]="form" class="vertical-form">
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Activity Date" formControlName="activityDate">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Activity Name" formControlName="activityName">
     </mat-form-field>
@@ -8,5 +14,5 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button class="btn-cancel" (click)="cancel()">Cancel</button>
-  <button mat-button class="btn-save"  (click)="save()" [disabled]="form.invalid">Save</button>
+  <button mat-button class="btn-save" (click)="save()" [disabled]="form.invalid">Save</button>
 </div>

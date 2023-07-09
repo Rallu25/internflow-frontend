@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Activities } from 'src/app/dtos/activities';
 import { ActivityEventService } from 'src/app/services/activity-event-service';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class AddActivityDialogComponent {
   ) {
     this.form = this.fb.group({
       activityName: ['', Validators.required],
+      activityDate: ['', Validators.required]
     });
   }
 
@@ -29,7 +31,9 @@ export class AddActivityDialogComponent {
       activityId: this.form.value.activityId,
       activityName: this.form.value.activityName,
       grade: this.form.value.grade,
-      attendance: this.form.value.attendances
+      attendance: this.form.value.attendances,
+      creationDate: new Date(),
+      activityDate: this.form.value.activityDate
        
     };
     this.dialogRef.close(activities);

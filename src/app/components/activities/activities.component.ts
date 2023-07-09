@@ -46,7 +46,8 @@ export class ActivitiesComponent implements OnInit{
       activityId: -1,
       activityName: '',
       grade: null,
-      attendance: null
+      attendance: null,
+      creationDate: new Date(),
     })
   }
 

@@ -34,7 +34,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { EditGradeDialogComponent } from './components/edit-grade-dialog/edit-grade-dialog.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatCheckboxModule} from "@angular/material/checkbox";
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,9 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
         MatSortModule,
         MatPaginatorModule,
         MatAutocompleteModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        MatDatepickerModule,
+        MatNativeDateModule
 
 
     ],

@@ -6,7 +6,8 @@ export class Activities {
     activityName: string;
     grade: Grades | null; 
     attendance: Attendance | null;
-    
+    creationDate: Date;
+    activityDate?: Date; 
 
 
     constructor(activities: Activities) {
@@ -14,6 +15,7 @@ export class Activities {
         this.activityName = activities?.activityName;
         this.grade = activities?.grade;
         this.attendance = activities?.attendance;
-        
+        this.creationDate = activities?.creationDate;
+        this.activityDate = activities?.activityDate;
     }
 }
