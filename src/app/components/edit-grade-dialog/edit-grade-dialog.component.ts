@@ -17,7 +17,7 @@ export class EditGradeDialogComponent {
     private dialogRef: MatDialogRef<EditGradeDialogComponent>,
     private fb: FormBuilder,
     private gradesService: GradesService,
-    private gradeEventService: GradeEventService,
+    @Inject(GradeEventService) private gradeEventService: GradeEventService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.form = this.fb.group({

@@ -36,6 +36,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { GradeEventService } from './services/grade-event-service';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 
     ],
-  providers: [StudentService, TeamService],
+  providers: [StudentService, TeamService, GradeEventService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
