@@ -58,38 +58,44 @@
     color: #534576;
   }
 
-  .btn-save {
-    background-color: #74649e;
-    color: #fff;
-    cursor: pointer;
-    font-size: 12px;
-    border: 1px solid #aaaaaa;
-    border-radius: 16px;
-    padding: 8px 35px;
-    font-family: WorkSans;
+ 
+.btn-save {
+  background-color: #74649e;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  border: 1px solid #aaaaaa;
+  border-radius: 16px;
+  padding: 8px 35px;
+  font-family: WorkSans;
+  margin-left: auto;
 
-    &:hover {
-      background-color: #534576;
-      color:  #929292;
-    }
+  &:hover {
+    background-color: #534576;
+    color:  #929292;
   }
+}
 
-  .btn-cancel {
-    background-color: #74649e;
-    color: #fff;
-    cursor: pointer;
-    font-size: 12px;
-    border: 1px solid #aaaaaa;
-    border-radius: 16px;
-    padding: 8px 35px;
+.btn-cancel {
+  background-color: #74649e;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  border: 1px solid #aaaaaa;
+  border-radius: 16px;
+  padding: 8px 35px;
+  margin-right: auto;
 
-    &:hover {
-      background-color: #534576;
-      color:  #929292;
-    }
-    font-family: WorkSans;
+  &:hover {
+    background-color: #534576;
+    color:  #929292;
   }
+  font-family: WorkSans;
+}
 
+.spacer {
+  flex-grow: 1;
+}
   .grade-box{
     font-family: WorkSans;
   }

@@ -53,7 +53,6 @@ export class StudentListComponent implements OnInit, AfterViewInit {
         this.dataSource.data = this.students;
       });
     });
-    //this.dataSource.paginator = this.paginator;
   }
 
   ngAfterViewInit() {
