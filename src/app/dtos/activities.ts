@@ -2,7 +2,7 @@ import { Grades } from "./grades";
 import { Attendance } from "./attendance";
 
 export class Activities {
-    activityId: number;
+    activityId: number ;
     activityName: string;
     grade: Grades | null; 
     attendance: Attendance | null;
