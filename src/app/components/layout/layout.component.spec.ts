@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HeaderComponent } from '../header/header.component';
 import { LayoutComponent } from './layout.component';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 describe('LayoutComponent', () => {
   let component: LayoutComponent;
@@ -8,7 +11,8 @@ describe('LayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LayoutComponent ]
+      declarations: [ LayoutComponent, HeaderComponent, SidebarComponent],
+      imports: [RouterTestingModule, MatToolbarModule]
     })
     .compileComponents();
 
