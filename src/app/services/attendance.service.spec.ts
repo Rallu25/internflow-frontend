@@ -41,6 +41,4 @@ describe('AttendanceService', () => {
     req.flush(mockAttendance);
   });
 
-  // Add more tests for other functionalities of the AttendanceService if needed
-
 });

@@ -18,7 +18,6 @@ import { GradeEventService } from 'src/app/services/grade-event-service';
   templateUrl: './student-list.component.html',
   styleUrls: ['./student-list.component.scss'],
   encapsulation: ViewEncapsulation.None 
-  
 })
 export class StudentListComponent implements OnInit, AfterViewInit {
   students: Student[] = [];
