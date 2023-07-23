@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
 
 describe('EditGradeDialogComponent', () => {
   let component: EditGradeDialogComponent;
@@ -13,7 +15,7 @@ describe('EditGradeDialogComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ EditGradeDialogComponent ],
-      imports: [MatDialogModule, HttpClientModule, MatFormFieldModule, ReactiveFormsModule ],
+      imports: [MatDialogModule, HttpClientModule, MatFormFieldModule, ReactiveFormsModule, BrowserAnimationsModule, MatInputModule ],
       providers: [
         { provide: MAT_DIALOG_DATA, useValue: {} },
         { provide: MatDialogRef, useValue: {} } 
