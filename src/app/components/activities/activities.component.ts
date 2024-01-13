@@ -7,7 +7,7 @@ import { DialogRef } from '@angular/cdk/dialog';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivityEventService } from 'src/app/services/activity-event-service';
-import { RoleService } from 'src/app/services/role.service';
+import { RoleService } from 'src/app/services/role-service';
 
 
 @Component({

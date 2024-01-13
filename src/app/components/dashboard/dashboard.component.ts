@@ -10,7 +10,7 @@ import { TeamService } from 'src/app/services/team.service';
 import { TeamStudentsComponent } from '../team-students/team-students.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EventService } from 'src/app/services/event-service';
-import { RoleService } from 'src/app/services/role.service';
+import { RoleService } from 'src/app/services/role-service';
 
 @Component({
   selector: 'app-dashboard',

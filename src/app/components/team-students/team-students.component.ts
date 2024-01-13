@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Student } from 'src/app/dtos/student';
 import { Team } from 'src/app/dtos/team';
-import { RoleService } from 'src/app/services/role.service';
+import { RoleService } from 'src/app/services/role-service';
 import { StudentService } from 'src/app/services/student.service';
 
 

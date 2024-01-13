@@ -40,6 +40,7 @@ import { GradeEventService } from './services/grade-event-service';
 import { SearchPipe } from './search.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { LoginComponent } from './components/login/login.component';
+import { RoleService } from './services/role-service';
 
 
 
@@ -87,7 +88,7 @@ import { LoginComponent } from './components/login/login.component';
         MatNativeDateModule,
         NgxPaginationModule,
     ],
-  providers: [StudentService, TeamService, GradeEventService],
+  providers: [StudentService, TeamService, GradeEventService, RoleService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

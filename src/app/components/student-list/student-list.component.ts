@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Attendance } from 'src/app/dtos/attendance';
 import { AttendanceService } from 'src/app/services/attendance.service';
 import { GradeEventService } from 'src/app/services/grade-event-service';
-import { RoleService } from 'src/app/services/role.service';
+import { RoleService } from 'src/app/services/role-service';
 
 
 @Component({
