@@ -1,7 +1,7 @@
 <div class="students-table">
   <h2 mat-dialog-title class="students-for-team-title">Students for Team: {{ team.teamName }}</h2>
   <div mat-dialog-content id="content">
-    <div id="dropDown">
+    <div id="dropDown" *ngIf="role !== 'student'">
     <form [formGroup]="form" class="vertical-form">
       <mat-form-field>
         <mat-label class="custom-label">Add Member</mat-label>
@@ -12,7 +12,7 @@
       </mat-form-field>
     </form>
     </div>
-    <div mat-dialog-actions id="button">
+    <div mat-dialog-actions id="button" *ngIf="role !== 'student'">
       <button mat-button color="primary" class="button-right" (click)="addMember()" [disabled]="!form.value.member || students.length > 4">Add</button>
     </div>
 
@@ -30,8 +30,8 @@
           <td>{{ student.firstName }}</td>
           <td>{{ student.lastName }}</td>
           <td>{{ student.email }}</td>
-          <td>
-            <button mat-icon-button color="warn" *ngIf="student.studentId != team.teamLeader.studentId"
+          <td *ngIf="role !== 'student'">
+            <button mat-icon-button color="warn" *ngIf="student.studentId != team.teamLeader.studentId" 
               (click)="removeMember(student)">
               <mat-icon>delete</mat-icon>
             </button>

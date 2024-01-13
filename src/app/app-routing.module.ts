@@ -1,21 +1,28 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ActivitiesComponent } from './components/activities/activities.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
+  // Route for login without layout
+  { path: 'login', component: LoginComponent },
+  // Redirect empty path to 'login'
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+
+  // Nested routes within layout for other pages
   {
     path: '',
     component: LayoutComponent,
     children: [
-      { path: '', redirectTo: 'home', pathMatch: 'full'},
       { path: 'home', component: DashboardComponent },
-      { path: 'activities', component: ActivitiesComponent}
-
+      { path: 'activities', component: ActivitiesComponent },
+      // ... other routes that should have the layout
     ]
-  }
-
+  },
+  // Catch-all for undefined routes
+  { path: '**', redirectTo: '/login' }
 ];
 
 @NgModule({

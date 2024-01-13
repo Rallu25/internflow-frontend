@@ -1,21 +1,25 @@
-
 <div class="container">
   <div class="button-left">
-    <button mat-raised-button color="primary" (click)="openAddActivityDialog()">Add Activity</button>
+    <button mat-raised-button color="primary" (click)="openAddActivityDialog()" *ngIf="role === 'mentor'">Add Activity</button>
   </div>
   <div class="card-container">
-    <div class="card" *ngFor="let activity of activities">
-      <div class="name">{{ activity.activityName }}</div>
-      <div class="date">{{ activity.activityDate | date }}</div> 
-      <div class="action">
-        <button mat-icon-button color="primary" (click)="openStudentList(activity)">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button color="warn" (click)="deleteActivity(activity)">
-          <mat-icon>delete</mat-icon>
-        </button>
+    <ng-container *ngFor="let activity of activities">
+      <!-- Conditionally bind click event to card based on role -->
+      <div class="card" (click)="(role === 'teamlead' || role === 'student') ? openStudentList(activity) : null">
+        <div class="name">{{ activity.activityName }}</div>
+        <div class="date">{{ activity.activityDate | date }}</div>
+        <!-- Mentor actions -->
+        <div class="action" *ngIf="role === 'mentor'">
+          <button mat-icon-button color="primary" (click)="openStudentList(activity); $event.stopPropagation()">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteActivity(activity); $event.stopPropagation()">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
       </div>
-    </div>
+    </ng-container>
   </div>
 </div>
-<app-student-list *ngIf="displayStudentList" [activityId]="activityId"></app-student-list>
+<!-- Pass the role to the student-list component -->
+<app-student-list *ngIf="displayStudentList" [activityId]="activityId" [role]="role"></app-student-list>

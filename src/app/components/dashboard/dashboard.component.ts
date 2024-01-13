@@ -10,6 +10,7 @@ import { TeamService } from 'src/app/services/team.service';
 import { TeamStudentsComponent } from '../team-students/team-students.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EventService } from 'src/app/services/event-service';
+import { RoleService } from 'src/app/services/role.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,14 +21,16 @@ export class DashboardComponent implements OnInit {
   students: Student[] = [];
   studentSelected: Student | undefined;
   teams: Team[] = [];
+  role: 'mentor' | 'teamlead' | 'student'; 
   constructor(
     private router: Router,
     private studentService: StudentService,
     private dialog: MatDialog,
     private teamService: TeamService,
     private snackBar: MatSnackBar,
-    private eventService: EventService
-  ) { }
+    private eventService: EventService,
+    private roleService: RoleService
+  ) { this.role = this.roleService.getRole();}
 
   ngOnInit(): void {
     this.studentService.searchStudents().subscribe((students) => {

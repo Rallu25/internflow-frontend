@@ -3,7 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Student } from 'src/app/dtos/student';
 import { Team } from 'src/app/dtos/team';
+import { RoleService } from 'src/app/services/role.service';
 import { StudentService } from 'src/app/services/student.service';
+
 
 @Component({
   selector: 'app-team-students',
@@ -15,13 +17,16 @@ export class TeamStudentsComponent implements OnInit {
   allStudents: Student[] = [];
   team: Team;
   form: FormGroup;
+  role: 'mentor' | 'teamlead' | 'student'; 
 
   constructor(
     public dialogRef: MatDialogRef<TeamStudentsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { team: Team },
     private fb: FormBuilder,
-    private studentService: StudentService
+    private studentService: StudentService,
+    private roleService: RoleService
   ) {
+    this.role = this.roleService.getRole();
     this.team = data.team;
     this.form = this.fb.group({
       member: [null]

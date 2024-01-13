@@ -56,3 +56,24 @@
   .navigation a:hover {
     background-color: #dedbfe;
   }
+
+  .logout-btn {
+    position: absolute; /* Keep the button absolutely positioned within the sidebar */
+    bottom: 10px; /* Place it at the bottom of the sidebar */
+    left: 50%; /* Start at 50% of the sidebar's width */
+    transform: translateX(-50%); /* Shift to the left by half the button's width to center it */
+    padding: 10px 15px; /* Add some padding inside the button */
+    border: none; /* Remove any default border */
+    background-color: #dedbfe; /* A pleasant blue background color */
+    color: #072F49; /* White text color */
+    border-radius: 20px; /* Rounded corners */
+    cursor: pointer; /* Change cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    text-align: center; /* Center the text inside the button */
+    font-family: WorkSans;
+    font-weight: 600;
+  }
+  
+  .logout-btn:hover {
+    background-color: #beb8f7; /* Slightly darker blue on hover */
+  }

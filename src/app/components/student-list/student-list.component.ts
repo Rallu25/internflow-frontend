@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Attendance } from 'src/app/dtos/attendance';
 import { AttendanceService } from 'src/app/services/attendance.service';
 import { GradeEventService } from 'src/app/services/grade-event-service';
+import { RoleService } from 'src/app/services/role.service';
 
 
 @Component({
@@ -28,15 +29,18 @@ export class StudentListComponent implements OnInit, AfterViewInit {
   @Input() activityId!: number;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  role: 'mentor' | 'teamlead' | 'student';
 
   constructor(
     private studentService: StudentService,
     private attendanceService: AttendanceService,
     private _liveAnnouncer: LiveAnnouncer,
     private gradeEventService: GradeEventService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private roleService: RoleService
   ) { 
     this.dataSource = new MatTableDataSource<Student>();
+    this.role = this.roleService.getRole();
   }
 
   ngOnInit(): void {

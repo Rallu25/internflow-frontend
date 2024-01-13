@@ -7,6 +7,7 @@ import { DialogRef } from '@angular/cdk/dialog';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivityEventService } from 'src/app/services/activity-event-service';
+import { RoleService } from 'src/app/services/role.service';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class ActivitiesComponent implements OnInit{
   activitySelected: Activities | undefined;
   displayStudentList = false;
   activityId!: number;
+  role: 'mentor' | 'teamlead' | 'student';
 
   constructor(
     private activitiesService: ActivitiesService,
@@ -26,9 +28,12 @@ export class ActivitiesComponent implements OnInit{
     private snackBar: MatSnackBar,
     private router: Router,
     private elementRef: ElementRef,
-    private activityEventService: ActivityEventService
-  ) { }
+    private activityEventService: ActivityEventService,
+    private roleService: RoleService 
+
+  ) {this.role = this.roleService.getRole(); }
   ngOnInit(): void {
+    this.role = this.roleService.getRole();
     this.fetchActivities();
     this.activityEventService.activityAdded$.subscribe(() => {
       this.fetchActivities();

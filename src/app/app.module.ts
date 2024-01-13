@@ -39,6 +39,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { GradeEventService } from './services/grade-event-service';
 import { SearchPipe } from './search.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -56,7 +57,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ActivitiesComponent,
     AddActivityDialogComponent,
     EditGradeDialogComponent,
-    SearchPipe
+    SearchPipe,
+    LoginComponent
   ],
     imports: [
         BrowserModule,
