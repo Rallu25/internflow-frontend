@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="login-screen">
+    <div class="login-box">
+      <h2 class="login-title">Welcome Back!</h2>
+      <form class="login-form" (ngSubmit)="onLogin(form)" #form="ngForm">
+        <div class="form-field">
+          <input type="text" ngModel name="username" class="form-input" placeholder="User name / Email" required>
+          <i class="field-icon fas fa-user"></i>
+        </div>
+        <div class="form-field">
+          <input type="password" ngModel name="password" class="form-input" placeholder="Password" required>
+          <i class="field-icon fas fa-lock"></i>
+        </div>
+        <button class="submit-button" type="submit">
+          Log In <i class="button-icon fas fa-chevron-right"></i>
+        </button>
+      </form>
+    </div>
+    <div class="login-background"></div>
+  </div>
+</div>
+
+<!-- 
+
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+        <form class="login" (ngSubmit)="onLogin(form)" #form="ngForm">
+				<div class="login__field">
+					<i class="field-icon fas fa-user"></i>
+          <input type="text" ngModel name="username" class="login__input" placeholder="User name / Email" required>
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+          <input type="password" ngModel name="password" class="login__input" placeholder="Password" required>
+				</div>
+				<button class="button login__submit" type="submit">
+					Log In Now
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>	
+        </form>			
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div> -->
