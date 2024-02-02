@@ -14,19 +14,16 @@ export class LoginComponent {
 
   onLogin(form: NgForm) {
     const { username, password } = form.value;
-    // Dummy authentication check
     if (username === 'mentor' && password === 'mentor') {
       this.roleService.setRole('mentor');
-      this.router.navigate(['/home']); // navigate to home page
+      this.router.navigate(['/home']); 
     } else if (username === 'teamlead' && password === 'teamlead') {
       this.roleService.setRole('teamlead');
       this.router.navigate(['/home']);
     } else if (username === 'student' && password === 'student') {
       this.roleService.setRole('student');
-      this.router.navigate(['/home']); // navigate to home page
-      // You can add logic for student if needed
+      this.router.navigate(['/home']); 
     } else {
-      // show error message
       alert('Invalid login credentials');
     }
   }

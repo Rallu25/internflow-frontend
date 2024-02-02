@@ -12,10 +12,8 @@ export class AppComponent {
   showLayout: boolean = true;
 
   constructor(private router: Router) {
-    // Listen to router events
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        // Check the current route
         this.showLayout = !event.urlAfterRedirects.startsWith('/login');
       }
     });

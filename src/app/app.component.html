@@ -1,3 +1,3 @@
-<!-- Conditionally include layout based on the showLayout flag -->
+
 <app-layout *ngIf="showLayout; else loginTemplate"></app-layout>
 <ng-template #loginTemplate><router-outlet></router-outlet></ng-template>
